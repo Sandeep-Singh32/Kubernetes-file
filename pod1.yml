@@ -1,0 +1,11 @@
+#this is my file yml file to create a pod with single container
+apiVersion: v1
+kind: Pod
+metadata:
+  name: test-pod
+spec:
+  containers:
+    - name: test
+      image: ubuntu
+      command: ["/bin/bash", "-c", "while true; do echo Hello Sandeep; sleep 5; done"]
+  restartPolicy: Never
