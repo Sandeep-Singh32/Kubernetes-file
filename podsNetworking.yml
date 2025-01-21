@@ -1,0 +1,21 @@
+kind: ReplicaSet 
+apiVersion: apps/v1 
+metadata: 
+ name: my-rs
+spec: 
+  replicas: 2 
+  selector: 
+    matchExpressions:
+      - {key: name, operator: In, values: [testpod]}
+  template: 
+    metadata: 
+      name: test-pod 
+      labels: 
+        name: testpod 
+    spec: 
+      containers: 
+        - name: first 
+          image: nginx 
+          ports: 
+            - containerPort: 8080
+      

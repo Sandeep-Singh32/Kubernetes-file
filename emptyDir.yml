@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: empty-pod
+spec:
+  containers:
+    - name: first
+      image: busybox
+      command: ["sh", "-c", "echo 'Hello From First Container' > /shared/data.text && sleep 3600"]
+      volumeMounts: 
+        - name: shared-volume 
+          mountPath: /shared 
+    - name: second 
+      image: busybox
+      command: ["sh", "-c", "while [ ! -f /shared/data.text ]; do sleep 1; done; cat /shared/data.text && sleep 3600"]
+      volumeMounts: 
+        - name: shared-volume 
+          mountPath: /shared
+  volumes: 
+    - name: shared-volume 
+      emptyDir: {}

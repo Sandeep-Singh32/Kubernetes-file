@@ -1,0 +1,15 @@
+kind: Pod 
+apiVersion: v1 
+metadata: 
+  name: doon-pod 
+  labels: 
+    app: doon
+    env: development
+    owner: Sandeep
+    class: Pods 
+spec:  
+  containers:
+    - name: first-container 
+      image: ubuntu 
+      command: ['/bin/bash', '-c', "echo Sandeep; sleep 1;"]
+  restartPolicy: Never

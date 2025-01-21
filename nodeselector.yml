@@ -1,0 +1,12 @@
+kind: Pod 
+apiVersion: v1 
+metadata: 
+  name: node-pod 
+spec: 
+  containers: 
+    - name: first-container 
+      image: ubuntu 
+      command: ['/bin/bash', '-c', 'echo Hello from first container; sleep 5;']
+  nodeSelector: 
+    hardware: t2-medium
+  restartPolicy: Never

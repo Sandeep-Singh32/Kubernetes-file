@@ -1,0 +1,15 @@
+kind: Pod
+apiVersion: v1 
+metadata: 
+  name: pod-with-env
+  annotations:
+   description: "I am adding a name variable to the pod"
+spec:
+  containers:
+    - name: first-container 
+      image: ubuntu 
+      command: ["/bin/bash", "-c", "while true; do echo Hello from container; sleep 5; done"]
+      env:
+        - name: NAME 
+          value: "Sandeep Singh"
+  restartPolicy: Never

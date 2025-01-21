@@ -1,0 +1,16 @@
+kind: Pod
+apiVersion: v1
+metadata: 
+  name: multiple-pod
+  annotations: 
+    type: "Multiple pod"
+    description: "In this we have to create multiple container under a single pod"
+spec: 
+  containers:
+    - name: first-container
+      image: ubuntu
+      command: ["/bin/bash", "-c", "while true; do echo Hello from first container; sleep 5; done"]
+    - name: second-container
+      image: ubuntu
+      command: ["/bin/bash", "-c", "while true; do echo Hello from second container; sleep 5; done"]
+  restartPolicy: Never

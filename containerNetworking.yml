@@ -1,0 +1,14 @@
+kind: Pod
+apiVersion: v1
+metadata:
+  name: communication
+spec:
+  containers:
+    - name: front
+      image: ubuntu
+      command: ['/bin/bash', '-c', 'while true; do echo Hello Sandeep Update; sleep 5; done']
+      
+    - name: server 
+      image: nginx 
+      ports: 
+        - containerPort: 80 

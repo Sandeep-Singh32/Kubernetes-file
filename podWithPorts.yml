@@ -1,0 +1,12 @@
+kind: Pod 
+apiVersion: v1 
+metadata: 
+  name: pod-with-ports 
+spec: 
+  containers: 
+    - name: first-container
+      image: ubuntu
+      ports: 
+        - containerPort: 80 
+      command: ["/bin/bash", "-c", "while true; do echo Hello Sandeep; sleep 5; done"]
+  restartPolicy: Never
