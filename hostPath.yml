@@ -1,0 +1,16 @@
+kind: Pod
+apiVersion: v1
+metadata:
+  name: host-path-data
+spec:
+  containers:
+    - name: first
+      image: ubuntu
+      command: ["sh", "-c", "echo 'Hello brother' && sleep 3600"]
+      volumeMounts:
+        - name: host-volume 
+          mountPath: /tmp/hostPath 
+  volumes: 
+    - name: host-volume 
+      hostPath: 
+        path: /tmp/data
