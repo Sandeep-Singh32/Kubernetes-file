@@ -3,9 +3,9 @@ kind: Service
 metadata: 
   name: my-service 
 spec: 
+  selector: 
+    env: development 
   ports: 
     - port: 80 
       targetPort: 80
-  selector: 
-    env: development 
   type: ClusterIP

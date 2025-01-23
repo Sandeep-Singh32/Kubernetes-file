@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hpa-demo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hpa-demo
+  template:
+    metadata:
+      labels:
+        app: hpa-demo
+    spec:
+      containers:
+        - name: app-container
+          image: vish/stress   # A lightweight image for generating load
+          args:
+            - "--cpu"         # Generates CPU stress
+            - "2"
+          resources:
+            requests:
+              cpu: "100m"     # Minimum guaranteed CPU
+            limits:
+              cpu: "200m"     # Maximum allowed CPU

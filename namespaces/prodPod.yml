@@ -1,0 +1,10 @@
+kind: Pod
+apiVersion: v1
+metadata:
+  name: my-pod
+  namespace: prod
+spec:
+  containers:
+    - name: my-container
+      image: ubuntu
+      command: ["sh", "-c", "echo 'Hello Sandeep' && sleep 3600"]
